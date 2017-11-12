@@ -1,0 +1,25 @@
+group 'com.portaone.workshop'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.codeborne:selenide:4.8'
+    compile 'org.testng:testng:6.11'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+    systemProperties 'file.encoding': 'UTF-8'
+
+    useTestNG()
+
+    outputs.upToDateWhen { false }
+}
