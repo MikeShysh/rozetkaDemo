@@ -1,9 +1,11 @@
 package com.portaone.workshop;
 
-import com.portaone.workshop.google.Google;
-import com.portaone.workshop.models.Dron;
-import com.portaone.workshop.rozetka.*;;
+import com.portaone.workshop.domain.google.Google;
+import com.portaone.workshop.domain.models.Dron;
+import com.portaone.workshop.domain.rozetka.*;
+import com.portaone.workshop.service.Highlighter;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -11,8 +13,14 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.addListener;
 
 public class BuyDron {
+
+    @BeforeClass
+    public void setUp() {
+        addListener(new Highlighter());
+    }
 
     @Test
     public void buyDron() {

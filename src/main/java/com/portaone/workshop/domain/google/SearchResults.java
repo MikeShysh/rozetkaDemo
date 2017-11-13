@@ -1,4 +1,4 @@
-package com.portaone.workshop.google;
+package com.portaone.workshop.domain.google;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;

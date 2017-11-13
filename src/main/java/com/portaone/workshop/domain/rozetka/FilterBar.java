@@ -1,4 +1,4 @@
-package com.portaone.workshop.rozetka;
+package com.portaone.workshop.domain.rozetka;
 
 import com.codeborne.selenide.SelenideElement;
 

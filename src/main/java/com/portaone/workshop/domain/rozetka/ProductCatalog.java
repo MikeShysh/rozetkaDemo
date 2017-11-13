@@ -1,8 +1,8 @@
-package com.portaone.workshop.rozetka;
+package com.portaone.workshop.domain.rozetka;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.portaone.workshop.models.Dron;
+import com.portaone.workshop.domain.models.Dron;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Tag;
 

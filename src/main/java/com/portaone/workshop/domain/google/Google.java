@@ -1,4 +1,4 @@
-package com.portaone.workshop.google;
+package com.portaone.workshop.domain.google;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
