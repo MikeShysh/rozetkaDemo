@@ -1,4 +1,4 @@
-package com.portaone.workshop;
+package com.portaone.workshop.models;
 
 public class Dron {
     String name;
