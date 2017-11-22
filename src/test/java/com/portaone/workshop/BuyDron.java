@@ -60,7 +60,6 @@ public class BuyDron {
         product.buy();
 
         CartPopUp dronCart = new CartPopUp();
-        dronCart.getCartHeader().shouldBe(visible).shouldHave(text("Вы добавили товар в корзину"));
         Assert.assertEquals(dronCart.getCartTotalAmount(), bestDron.getPrice());
         dronCart.close();
 
