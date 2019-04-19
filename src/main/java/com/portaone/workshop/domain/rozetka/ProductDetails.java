@@ -1,5 +1,6 @@
 package com.portaone.workshop.domain.rozetka;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,11 +13,11 @@ public class ProductDetails {
 		return $("h1[itemprop=\"name\"]");
 	}
 
-	public SelenideElement getDeliveryOptions(String section) {
-		return $$("[name=\"delivery_div\"] .detail-dwp-subi").find(text(section));
+	public ElementsCollection getDeliveryOptions() {
+		return $$("pp-delivery .detail-dwp-l-i");
 	}
 
 	public void buy() {
-		$("[name=\"topurchases\"]").click();
+		$(".toOrder button").click();
 	}
 }

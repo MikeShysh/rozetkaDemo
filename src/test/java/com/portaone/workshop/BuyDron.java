@@ -56,7 +56,7 @@ public class BuyDron {
 
         ProductDetails product = new ProductDetails();
         product.getTitle().shouldHave(text(bestDron.getName()));
-        product.getDeliveryOptions("Курьер").shouldHave(text("Новая почта"));
+        product.getDeliveryOptions().filterBy(text("Курьер Новая почта")).shouldHaveSize(1);
         product.buy();
 
         CartPopUp dronCart = new CartPopUp();

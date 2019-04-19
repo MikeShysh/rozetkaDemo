@@ -9,10 +9,10 @@ public class CartPopUp {
 		return  $("#cart-popup .cart-title");
 	}
 	public int getCartTotalAmount() {
-		return Integer.parseInt($("#cart-popup [name=\"cost\"]")
-				.getText().replace(" ",""));
+		return Integer.parseInt($(".cart-popup .purchase-sum-coast")
+				.getText().replaceAll("\\D", ""));
 	}
 	public void close() {
-		$("#cart-popup [name=\"close\"]").click();
+		$("a.rz-popup-close").click();
 	}
 }

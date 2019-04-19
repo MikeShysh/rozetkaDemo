@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Header {
 	public SelenideElement getHeaderCartItems() {
-		return $("#cart_popup_header .hub-i-count");
+		return $("rz-user-buttons-cart .header-actions__button-counter");
 	}
 	public void scrollToHeader() {
 		$(".logo").scrollTo();
