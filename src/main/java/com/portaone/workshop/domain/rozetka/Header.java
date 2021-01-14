@@ -6,9 +6,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Header {
 	public SelenideElement getHeaderCartItems() {
-		return $("rz-user-buttons-cart .header-actions__button-counter");
+		return $(".header-actions__item_type_cart .header-actions__button-counter");
 	}
 	public void scrollToHeader() {
-		$(".logo").scrollTo();
+		$(".header").scrollTo();
 	}
 }

@@ -5,25 +5,35 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class FilterBar {
 
 	public FilterBar checkOptionsFromSection(String section, String... options) {
-		SelenideElement sectionEl = $(".filter")
+		SelenideElement sectionEl = $(".sidebar")
 				.$(withText(section))
-				.closest(".filter-parametrs-i");
+				.closest(".sidebar-block");
 		for (String opt: options) {
 			sectionEl.scrollIntoView(true);
 			sectionEl.$(withText(opt)).closest("a").click();
-			$(".progress-b").shouldNotBe(visible);
+			$(".preloader_type_goods").shouldNotBe(visible);
 		}
 		return this;
 	}
 
 	public FilterBar setPriceMax(String maxPrice) {
-		$(".filter [name=\"price[max]\"]").sendKeys(maxPrice);
-		$(".filter #submitprice").click();
-		$(".progress-b").shouldNotBe(visible);
+		SelenideElement el = $(".sidebar-block[data-filter-name=price]");
+		el.$("input[formcontrolname=\"max\"]").setValue(maxPrice);
+		el.$("button[type=\"submit\"]").click();
+		$(".preloader_type_goods").shouldNotBe(visible);
+		return this;
+	}
+
+	public FilterBar searchAndSetProducer(String name) {
+		SelenideElement el = $(".sidebar-block[data-filter-name=\"producer\"]");
+		el.$("input[name=\"searchline\"]").setValue(name);
+		el.$(withText(name)).closest("a").click();
+		$(".preloader_type_goods").shouldNotBe(visible);
 		return this;
 	}
 }

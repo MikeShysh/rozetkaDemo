@@ -27,24 +27,27 @@ public class BuyDron {
         open("/");
         new Google()
                 .search("квадрокоптеры")
-                .openSite("Rozetka");
+                .scrollDown(1000)
+                .openSite("rozetka");
 
         ProductCatalog catalog = new ProductCatalog();
         catalog.getCatalogTitle().shouldHave(text("Квадрокоптеры"));
 
+        catalog.sortBy("Популярные");
+
         new FilterBar()
+                .setPriceMax("5000")
                 .checkOptionsFromSection("Камера","С камерой")
-                .checkOptionsFromSection("Функция возврата на точку взлета","С функцией")
-                .checkOptionsFromSection("Автопилот","Без автопилота")
-                .setPriceMax("12000")
-                .checkOptionsFromSection("Производитель","Kingco","Skytech");
+                .checkOptionsFromSection("Особенности","С функцией возврата")
+                .checkOptionsFromSection("Особенности","С гироскопом")
+                .searchAndSetProducer("UTG-T")
+                .searchAndSetProducer("Visuo");
 
         catalog.getEmptyBlock().shouldNot(exist);
+
         new Header().scrollToHeader();
-        catalog.sortBy("популярные");
 
         List<Dron> drons = catalog.getListOfProducts();
-
         Dron bestDron = drons.stream()
                 .filter(dron -> dron.isAvailable() && dron.getRating() > 75 && dron.getReviews() > 5)
                 .sorted(Comparator.comparingInt(Dron::getPrice)
