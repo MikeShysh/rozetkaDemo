@@ -35,6 +35,7 @@ public class ProductCatalog {
 
     public ProductDetails openProduct(String name) {
         $("a[title='" + name + "']").click();
+        $(".header__logo").hover();
         return new ProductDetails();
     }
 

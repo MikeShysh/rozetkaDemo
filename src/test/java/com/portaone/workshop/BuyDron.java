@@ -30,6 +30,8 @@ public class BuyDron {
                 .scrollDown(1000)
                 .openSite("rozetka");
 
+        new Header().switchLanguage();
+
         ProductCatalog catalog = new ProductCatalog();
         catalog.getCatalogTitle().shouldHave(text("Квадрокоптеры"));
 

@@ -11,4 +11,8 @@ public class Header {
 	public void scrollToHeader() {
 		$(".header").scrollTo();
 	}
+
+	public void switchLanguage() {
+		$(".header-topline__language a").click();
+	}
 }
